@@ -1,0 +1,26 @@
+{
+  "Analysis": {
+    "description": "Auto imported from /components/Analysis.vue"
+  },
+  "LazyAnalysis": {
+    "description": "Auto imported from /components/Analysis.vue"
+  },
+  "BarChart": {
+    "description": "Auto imported from /components/BarChart.vue"
+  },
+  "LazyBarChart": {
+    "description": "Auto imported from /components/BarChart.vue"
+  },
+  "Digits": {
+    "description": "Auto imported from /components/Digits.vue"
+  },
+  "LazyDigits": {
+    "description": "Auto imported from /components/Digits.vue"
+  },
+  "VuetifyLogo": {
+    "description": "Auto imported from /components/VuetifyLogo.vue"
+  },
+  "LazyVuetifyLogo": {
+    "description": "Auto imported from /components/VuetifyLogo.vue"
+  }
+}

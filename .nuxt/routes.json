@@ -1,0 +1,16 @@
+[
+  {
+    "name": "inspire",
+    "path": "/inspire",
+    "component": "/home/reamon/projects/hedgetrackerui/pages/inspire.vue",
+    "chunkName": "pages/inspire",
+    "_name": "_f9cc14cc"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/reamon/projects/hedgetrackerui/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_4e0e1992"
+  }
+]

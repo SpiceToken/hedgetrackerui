@@ -1,9 +1,12 @@
 <template>
+<v-container>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <bar-chart :data="barChartData" :options="barChartOptions" :height="200" />
     </v-col>
   </v-row>
+</v-container>
+  
 </template>
 
 <script>
@@ -27,16 +30,6 @@ export default {
         ],
         datasets: [
           {
-            label: 'Visits',
-            data: [10, 15, 20, 30, 40, 50, 60, 70, 34, 45, 11, 78, 45],
-            backgroundColor: '#003f5c'
-          },
-          {
-            label: 'Pages Views',
-            data: [30, 24, 57, 23, 68, 72, 25, 64, 133, 143, 165, 33, 56],
-            backgroundColor: '#2f4b7c'
-          },
-          {
             label: 'Users',
             data: [45, 65, 30, 53, 34, 35, 26, 37, 34, 45, 67, 87, 98],
             backgroundColor: '#665191'
@@ -50,7 +43,7 @@ export default {
         },
         title: {
           display: true,
-          text: 'Example Bar Graph',
+          text: 'Analysis',
           fontSize: 24,
           fontColor: '#6b7280'
         },
