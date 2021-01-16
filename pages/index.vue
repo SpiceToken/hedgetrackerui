@@ -28,7 +28,7 @@ export default {
   components: { Analysis, Digits },
   created (){
     let vm = this
-    let backend_address = ''
+    let backend_address = 'hedgetracker-staging.scibizinformatics.com'
     vm.$connect(`wss://${backend_address}/ws/socket/${user.id}/`,{format: 'json' })
   }
 
