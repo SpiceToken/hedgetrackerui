@@ -25,7 +25,12 @@
 import Analysis from '../components/Analysis.vue'
 import Digits from '../components/Digits.vue'
 export default {
-	components: { Analysis, Digits },
+  components: { Analysis, Digits },
+  created (){
+    let vm = this
+    let backend_address = ''
+    vm.$connect(`wss://${backend_address}/ws/socket/${user.id}/`,{format: 'json' })
+  }
 
 }
 </script>
