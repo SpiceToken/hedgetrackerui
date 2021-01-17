@@ -37,7 +37,7 @@ export default {
     '@nuxtjs/axios',  
   ],
   axios: {
-    baseURL: "http://34.220.75.30/",
+    baseURL: "http://34.220.75.30/api/",
   },
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [

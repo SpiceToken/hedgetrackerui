@@ -11,7 +11,12 @@
             :color="'deep-orange'"/>
         </v-col>
         <v-col md="6">
-          <analysis v-if="!isMobile" :metrics="metrics"/> 
+          <analysis
+            v-if="!isMobile"
+            :metrics="metrics"
+            :color="'#FFAB91'"
+            :filterBy="'total_contract_satoshis'"
+          /> 
         </v-col>
 
         <v-col md="6" sm="12">
@@ -23,9 +28,13 @@
             :color="'blue'"/>
         </v-col>
         <v-col md="6">
-          <analysis v-if="!isMobile" :metrics="metrics"/> 
+          <analysis
+            v-if="!isMobile"
+            :metrics="metrics"
+            :color="'#90CAF9'"
+            :filterBy="'hedge_usd_payout'"
+          /> 
         </v-col>
-
 
         <v-col md="6" sm="12">
           <digits
@@ -36,31 +45,46 @@
             :color="'pink'"/>
         </v-col>
         <v-col md="6">
-          <analysis v-if="!isMobile" :metrics="metrics"/> 
+          <analysis
+            v-if="!isMobile"
+            :metrics="metrics"
+            :color="'#F48FB1'"
+            :filterBy="'long_usd_payout'"
+            /> 
         </v-col>
 
         <v-col md="6" sm="12">
           <digits
             :date="latest_metric.date_created"
-            :name="'Hedge Pay In (Satoshis)'"
+            :name="'Hedge Pay In Satoshis'"
             :value="latest_metric.approx_hedge_payin_satoshis"
             :sign="''"
             :color="'purple'"/>
         </v-col>
         <v-col md="6">
-          <analysis v-if="!isMobile" :metrics="metrics"/> 
+          <analysis
+            v-if="!isMobile"
+            :metrics="metrics"
+            :color="'#CE93D8'"
+            :filterBy="'approx_hedge_payin_satoshis'"
+          /> 
         </v-col>
 
         <v-col md="6" sm="12">
           <digits
             :date="latest_metric.date_created"
-            :name="'Long Pay In (Satoshis)'"
+            :name="'Long Pay In Satoshis'"
             :value="latest_metric.approx_long_payin_satoshis"
             :sign="''"
             :color="'amber'"/>
         </v-col>
         <v-col md="6">
-          <analysis v-if="!isMobile" :metrics="metrics"/> 
+          <analysis
+            v-if="!isMobile"
+            :metrics="metrics"
+            :color="'#FFE082'"
+            :filterBy="'approx_long_payin_satoshis'"
+            /> 
         </v-col>
 
         <v-col md="6" sm="12">
@@ -72,7 +96,12 @@
             :color="'teal'"/>
         </v-col>
         <v-col md="6">
-          <analysis v-if="!isMobile" :metrics="metrics"/> 
+          <analysis
+            v-if="!isMobile"
+            :metrics="metrics"
+            :color="'#80CBC4'"
+            :filterBy="'approx_long_usd_payin'"
+          /> 
         </v-col>
     </v-row>
   </v-container>
@@ -112,9 +141,7 @@ export default {
     }
   },
   created(){
-    let latest_metric = this.metrics[0]
-    delete latest_metric.id
-    this.latest_metric = latest_metric
+    this.latest_metric = this.metrics[0]
     this.metrics = this.metrics.slice(0,11)
   
   },

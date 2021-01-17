@@ -14,7 +14,7 @@
       <v-card-title class="justify-center">
         <div align="center">
           
-          <strong><h2 class="light-green--text text--lighten-2" > {{sign}} {{ parseFloat(value).toFixed(2) }}</h2></strong>
+          <strong><h2 :class="parseFloat(value) < 0 ? 'red--text text--lighten-2' : 'light-green--text text--lighten-2'" > {{sign}} {{ parseFloat(value).toFixed(2) }}</h2></strong>
           <label>{{  parseDateTime(date).format("dddd, MMMM Do YYYY, h:mm:ss a") }}</label>
         </div>
       </v-card-title>

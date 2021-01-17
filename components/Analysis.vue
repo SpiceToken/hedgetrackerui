@@ -13,7 +13,7 @@
 import moment from 'moment'
 
 export default {
-  props: ['metrics'],
+  props: ['metrics', 'color','filterBy'],
   computed:{
     test: function(datetime){
       return moment(datetime)
@@ -21,20 +21,18 @@ export default {
   },
   created(){
     let vm = this
-    let latest = vm.metrics.slice(0,20)
-    
+    let latest = vm.metrics
     let label = latest.map(function(obj){
       return moment(obj.date_created).format("MMMDD HH[:]mm")
     })
-    
 
     let datasets = latest.map(function(obj){
       return {
-        'label': 'total_contract_satoshis',
+        'label': vm.filterBy,
         'data': latest.map(function(obj){
-          return obj.total_contract_satoshis
+          return obj[vm.filterBy]
         }),
-        'backgroundColor': '#FFAB91'
+        'backgroundColor': vm.color
       }
     })
     vm.barChartData['labels'] = label
