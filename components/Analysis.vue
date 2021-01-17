@@ -1,7 +1,7 @@
 <template>
 <v-container>
   <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
+    <v-col>
       <bar-chart :data="barChartData" :options="barChartOptions" :height="200" />
     </v-col>
   </v-row>
@@ -21,25 +21,26 @@ export default {
   },
   created(){
     let vm = this
-    let latest = vm.metrics.slice(0,19)
+    let latest = vm.metrics.slice(0,20)
     
     let label = latest.map(function(obj){
       return moment(obj.date_created).format("MMMDD HH[:]mm")
     })
     
 
-    let datasets = vm.metric_names.filter(function(name){
+    let datasets = latest.map(function(obj){
       return {
-        label: name,
-        data: latest.map(function(obj){
-          return obj[name]
+        'label': 'total_contract_satoshis',
+        'data': latest.map(function(obj){
+          return obj.total_contract_satoshis
         }),
-        backgroundColor: '#665191'
+        'backgroundColor': '#FFAB91'
       }
     })
-    console.log(datasets)
     vm.barChartData['labels'] = label
     vm.barChartData['datasets'] = datasets
+
+
   },
   data() {
     return {
@@ -62,7 +63,7 @@ export default {
         },
         title: {
           display: true,
-          text: 'Analysis',
+          text: '',
           fontSize: 24,
           fontColor: '#6b7280'
         },

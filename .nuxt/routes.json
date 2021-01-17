@@ -1,12 +1,5 @@
 [
   {
-    "name": "inspire",
-    "path": "/inspire",
-    "component": "/home/reamon/projects/hedgetrackerui/pages/inspire.vue",
-    "chunkName": "pages/inspire",
-    "_name": "_f9cc14cc"
-  },
-  {
     "name": "settlements",
     "path": "/settlements",
     "component": "/home/reamon/projects/hedgetrackerui/pages/settlements.vue",
