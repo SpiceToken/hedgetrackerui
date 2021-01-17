@@ -25,11 +25,24 @@
 import Analysis from '../components/Analysis.vue'
 import Digits from '../components/Digits.vue'
 export default {
-  components: { Analysis, Digits },
-  created (){
-    let vm = this
-    let backend_address = 'hedgetracker-staging.scibizinformatics.com'
-    vm.$connect(`wss://${backend_address}/ws/socket/${user.id}/`,{format: 'json' })
+  data () {
+    return {
+      data: {}
+    }
+  },
+  components: {
+    Analysis,
+    Digits
+  },
+  methods: {
+    messageReceived: function(data){
+      console.log(data)
+    },
+  },
+  beforeCreate() {
+    this.$options.sockets = {
+      onmessage: data => this.messageReceived(data)
+    }
   }
 
 }

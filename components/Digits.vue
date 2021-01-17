@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card :loading="loading" class="mx-auto">
+    <v-card class="mx-auto">
         <template slot="progress">
         <v-progress-linear
             color="deep-purple"
