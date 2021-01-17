@@ -80,12 +80,12 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-chart-bar',
           title: 'Metrics',
           to: '/'
         },
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-table',
           title: 'Settlements',
           to: '/settlements'
         }

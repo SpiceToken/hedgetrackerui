@@ -141,9 +141,13 @@ export default {
     }
   },
   created(){
-    this.latest_metric = this.metrics[0]
-    this.metrics = this.metrics.slice(0,11)
-  
+    let vm = this
+    vm.latest_metric = vm.metrics[0]
+    vm.metrics = vm.metrics.slice(0,11)
+    vm.$axios.get('/metrics/').then(function(res){
+      vm.metrics = res.data.results
+
+    })
   },
   async asyncData({ $axios }) {
     const metrics = await $axios.$get(`/metrics/`)
