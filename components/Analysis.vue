@@ -22,7 +22,9 @@ export default {
   created(){
     let vm = this
     let latest = vm.metrics
+    
     let label = latest.map(function(obj){
+
       return moment(obj.date_created).format("MMMDD HH[:]mm")
     })
 
@@ -42,14 +44,6 @@ export default {
   },
   data() {
     return {
-      metric_names: [
-        'total_contract_satoshis',
-        'hedge_usd_payout',
-        'long_usd_payout',
-        'approx_hedge_payin_satoshis',
-        'approx_long_payin_satoshis',
-        'approx_long_usd_payin'
-      ],
       barChartData: {
         labels: [],
         datasets: []

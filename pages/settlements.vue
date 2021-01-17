@@ -1,7 +1,9 @@
 <template>
     <v-container>
         <v-row>
-            <custom-table/>
+            <v-col>
+                <custom-table/>
+            </v-col>
         </v-row>
     </v-container>
 </template>
