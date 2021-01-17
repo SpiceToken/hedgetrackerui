@@ -10,33 +10,52 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
+  props: ['metrics'],
+  computed:{
+    test: function(datetime){
+      return moment(datetime)
+    }
+  },
+  created(){
+    let vm = this
+    let latest = vm.metrics.slice(0,19)
+    
+    let label = latest.map(function(obj){
+      return moment(obj.date_created).format("MMMDD HH[:]mm")
+    })
+    
+
+    let datasets = vm.metric_names.filter(function(name){
+      return {
+        label: name,
+        data: latest.map(function(obj){
+          return obj[name]
+        }),
+        backgroundColor: '#665191'
+      }
+    })
+    console.log(datasets)
+    vm.barChartData['labels'] = label
+    vm.barChartData['datasets'] = datasets
+  },
   data() {
     return {
+      metric_names: [
+        'total_contract_satoshis',
+        'hedge_usd_payout',
+        'long_usd_payout',
+        'approx_hedge_payin_satoshis',
+        'approx_long_payin_satoshis',
+        'approx_long_usd_payin'
+      ],
       barChartData: {
-        labels: [
-          '2019-06',
-          '2019-07',
-          '2019-08',
-          '2019-09',
-          '2019-10',
-          '2019-11',
-          '2019-12',
-          '2020-01',
-          '2020-02',
-          '2020-03',
-          '2020-04',
-          '2020-05'
-        ],
-        datasets: [
-          {
-            label: 'Users',
-            data: [45, 65, 30, 53, 34, 35, 26, 37, 34, 45, 67, 87, 98],
-            backgroundColor: '#665191'
-          }
-        ]
+        labels: [],
+        datasets: []
       },
-      barChartOptions: {
+     barChartOptions: {
         responsive: true,
         legend: {
           display: false
