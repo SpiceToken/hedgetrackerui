@@ -3,18 +3,21 @@
     "name": "inspire",
     "path": "/inspire",
     "component": "/home/reamon/projects/hedgetrackerui/pages/inspire.vue",
-    "chunkName": "pages/inspire"
+    "chunkName": "pages/inspire",
+    "_name": "_f9cc14cc"
   },
   {
     "name": "settlements",
     "path": "/settlements",
     "component": "/home/reamon/projects/hedgetrackerui/pages/settlements.vue",
-    "chunkName": "pages/settlements"
+    "chunkName": "pages/settlements",
+    "_name": "_150e032a"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/home/reamon/projects/hedgetrackerui/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_4e0e1992"
   }
 ]

@@ -34,8 +34,11 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/axios',  
   ],
-
+  axios: {
+    baseURL: "http://34.220.75.30/",
+  },
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
   ],
