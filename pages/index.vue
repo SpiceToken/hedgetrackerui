@@ -4,34 +4,33 @@
     <v-row justify="center" align="center">
 
         <v-col cols="12" md="2">
-          <digits :name="'Total Contract Satoshis'" :value="latest_metric.total_contract_satoshis"/>
+          <digits :name="'Total Contract Satoshis'" :value="latest_metric.total_contract_satoshis" :sign="''" :color="'deep-orange'"/>
         </v-col>
 
         <v-col cols="12" md="2">
-          <digits :name="'Hedge USD Payout'" :value="latest_metric.hedge_usd_payout"/>
+          <digits :name="'Hedge Payout'" :value="latest_metric.hedge_usd_payout" :sign="'$'" :color="'blue'"/>
         </v-col>
 
         <v-col cols="12" md="2">
-          <digits :name="'Long USD Payout'" :value="latest_metric.long_usd_payout"/>
+          <digits :name="'Long Payout'" :value="latest_metric.long_usd_payout" :sign="'$'" :color="'pink'"/>
         </v-col>
 
         <v-col cols="12" md="2">
-          <digits :name="'Approximate Hedge Pay In (Satoshis)'" :value="latest_metric.approx_hedge_payin_satoshis"/>
+          <digits :name="'Hedge Pay In (Satoshis)'" :value="latest_metric.approx_hedge_payin_satoshis" :sign="''" :color="'purple'"/>
         </v-col>
 
         <v-col cols="12" md="2">
-          <digits :name="'Approximate Long Pay In (Satoshis)'" :value="latest_metric.approx_long_payin_satoshis"/>
+          <digits :name="'Long Pay In (Satoshis)'" :value="latest_metric.approx_long_payin_satoshis" :sign="''" :color="'amber'"/>
         </v-col>
 
         <v-col cols="12" md="2">
-          <digits :name="'Approximate Ling USD Pay In'" :value="latest_metric.approx_long_usd_payin"/>
+          <digits :name="'Approx Long Pay In'" :value="latest_metric.approx_long_usd_payin" :sign="'$'" :color="'teal'"/>
         </v-col>
     </v-row>
 
     <v-row>
-      <analysis/>
       <v-col>
-        
+          <analysis :metrics="metrics"/> 
       </v-col>
     </v-row>
   </v-container>
