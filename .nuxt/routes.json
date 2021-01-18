@@ -1,16 +1,16 @@
 [
   {
-    "name": "settlements",
-    "path": "/settlements",
-    "component": "/home/reamon/projects/hedgetrackerui/pages/settlements.vue",
-    "chunkName": "pages/settlements",
-    "_name": "_150e032a"
+    "name": "index2",
+    "path": "/index2",
+    "component": "/home/jethro/Documents/dev/hedgetrackerui/pages/index2.vue",
+    "chunkName": "pages/index2",
+    "_name": "_37ef242e"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/home/reamon/projects/hedgetrackerui/pages/index.vue",
+    "component": "/home/jethro/Documents/dev/hedgetrackerui/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_4e0e1992"
+    "_name": "_6d27fbb4"
   }
 ]

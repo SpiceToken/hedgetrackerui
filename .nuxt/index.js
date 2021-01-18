@@ -12,10 +12,11 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_4d9ce3b6 from 'nuxt_plugin_plugin_4d9ce3b6' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_plugin_d1c42810 from 'nuxt_plugin_plugin_d1c42810' // Source: ./vuetify/plugin.js (mode: 'all')
-import nuxt_plugin_axios_b0432068 from 'nuxt_plugin_axios_b0432068' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_plugin_630c8f58 from 'nuxt_plugin_plugin_630c8f58' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_plugin_af66e7cc from 'nuxt_plugin_plugin_af66e7cc' // Source: ./vuetify/plugin.js (mode: 'all')
+import nuxt_plugin_axios_66cec16a from 'nuxt_plugin_axios_66cec16a' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_nativewebsocket_2419298f from 'nuxt_plugin_nativewebsocket_2419298f' // Source: ../plugins/native-websocket.js (mode: 'client')
+import nuxt_plugin_apexcharts_475acaea from 'nuxt_plugin_apexcharts_475acaea' // Source: ../plugins/apexcharts.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -61,7 +62,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"titleTemplate":"%s - hedgetrackerui","title":"hedgetrackerui","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"}],"style":[],"script":[]},
+    head: {"title":"Hedge Tracker","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Karla&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"}],"style":[],"script":[]},
 
     router,
     nuxt: {
@@ -175,20 +176,24 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_4d9ce3b6 === 'function') {
-    await nuxt_plugin_plugin_4d9ce3b6(app.context, inject)
+  if (typeof nuxt_plugin_plugin_630c8f58 === 'function') {
+    await nuxt_plugin_plugin_630c8f58(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_plugin_d1c42810 === 'function') {
-    await nuxt_plugin_plugin_d1c42810(app.context, inject)
+  if (typeof nuxt_plugin_plugin_af66e7cc === 'function') {
+    await nuxt_plugin_plugin_af66e7cc(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_b0432068 === 'function') {
-    await nuxt_plugin_axios_b0432068(app.context, inject)
+  if (typeof nuxt_plugin_axios_66cec16a === 'function') {
+    await nuxt_plugin_axios_66cec16a(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_nativewebsocket_2419298f === 'function') {
     await nuxt_plugin_nativewebsocket_2419298f(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_apexcharts_475acaea === 'function') {
+    await nuxt_plugin_apexcharts_475acaea(app.context, inject)
   }
 
   // Lock enablePreview in context

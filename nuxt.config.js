@@ -1,30 +1,33 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from "vuetify/es5/util/colors";
 
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: '%s - hedgetrackerui',
-    title: 'hedgetrackerui',
+    title: "Hedge Tracker",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Karla&display=swap",
+      },
+    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     {
-      src: '~plugins/native-websocket.js',
-      ssr: false
-    }
+      src: "~plugins/native-websocket.js",
+      ssr: false,
+    },
+    { src: "~/plugins/apexcharts.js", ssr: false },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -33,21 +36,20 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
-    '@nuxtjs/axios',  
+    "@nuxtjs/vuetify",
+    "@nuxtjs/axios",
   ],
   axios: {
-    baseURL: "http://34.220.75.30/api/",
+    baseURL: "http://hedgetracker.spice.cash/api/",
   },
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [
-  ],
+  modules: [],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ["~/assets/variables.scss"],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -56,13 +58,32 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
+          success: colors.green.accent3,
+        },
+      },
+    },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-  }
-}
+    vendor: ["vue-apexchart"],
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {
+      const vueLoader = config.module.rules.find(
+        (rule) => rule.loader === "vue-loader"
+      );
+      vueLoader.options.transformToRequire = {
+        img: "src",
+        image: "xlink:href",
+        "b-img": "src",
+        "b-img-lazy": ["src", "blank-src"],
+        "b-card": "img-src",
+        "b-card-img": "img-src",
+        "b-carousel-slide": "img-src",
+        "b-embed": "src",
+      };
+    },
+  },
+};

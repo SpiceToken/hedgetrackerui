@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <!--
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -24,17 +25,12 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
+    -->
+    <v-app-bar :clipped-left="clipped" fixed app flat hide-on-scroll>
+      <!--
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
+      <v-btn icon @click.stop="miniVariant = !miniVariant" v-if="drawer">
+        <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
       </v-btn>
       <v-btn
         icon
@@ -42,15 +38,20 @@
       >
         <v-icon>mdi-application</v-icon>
       </v-btn>
-      <!-- <v-btn
+      <v-btn
         icon
         @click.stop="fixed = !fixed"
       >
         <v-icon>mdi-minus</v-icon>
-      </v-btn> -->
+      </v-btn> 
+      -->
+      <v-spacer></v-spacer>
       <v-toolbar-title v-text="title" />
+      <v-spacer></v-spacer>
+
+      <!-- 
       <v-spacer />
-      <!-- <v-btn
+      <v-btn
         icon
         @click.stop="rightDrawer = !rightDrawer"
       >
@@ -58,43 +59,47 @@
       </v-btn> -->
     </v-app-bar>
     <v-main>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-main>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
+    <!-- 
+    <v-footer :absolute="!fixed" app>
+      <span>&copy; {{ new Date().getFullYear() }}</span> 
     </v-footer>
+      -->
   </v-app>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-chart-bar',
-          title: 'Metrics',
-          to: '/'
-        },
-        {
-          icon: 'mdi-table',
-          title: 'Settlements',
-          to: '/settlements'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Hedge Tracker'
-    }
-  }
-}
+      clipped: true,
+      // drawer: false,
+      // fixed: false,
+      // items: [
+      //   {
+      //     icon: "mdi-chart-bar",
+      //     title: "Metrics",
+      //     to: "/",
+      //   },
+      //   {
+      //     icon: "mdi-table",
+      //     title: "Settlements",
+      //     to: "/settlements",
+      //   },
+      // ],
+      // miniVariant: false,
+      // right: true,
+      // rightDrawer: false,
+      title: "Hedge Tracker",
+    };
+  },
+};
 </script>
+
+<style scoped>
+.v-application {
+  background-color: #f2f4f4;
+  font-family: "Karla", sans-serif;
+}
+</style>

@@ -4,8 +4,8 @@ import { normalizeURL, decode } from '@nuxt/ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _150e032a = () => interopDefault(import('../pages/settlements.vue' /* webpackChunkName: "pages/settlements" */))
-const _4e0e1992 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _37ef242e = () => interopDefault(import('../pages/index2.vue' /* webpackChunkName: "pages/index2" */))
+const _6d27fbb4 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -24,12 +24,12 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
-    path: "/settlements",
-    component: _150e032a,
-    name: "settlements"
+    path: "/index2",
+    component: _37ef242e,
+    name: "index2"
   }, {
     path: "/",
-    component: _4e0e1992,
+    component: _6d27fbb4,
     name: "index"
   }],
 
