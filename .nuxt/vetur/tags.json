@@ -1,32 +1,14 @@
 {
-  "Analysis": {
-    "description": "Auto imported from /components/Analysis.vue"
-  },
-  "LazyAnalysis": {
-    "description": "Auto imported from /components/Analysis.vue"
-  },
-  "BarChart": {
-    "description": "Auto imported from /components/BarChart.vue"
-  },
-  "LazyBarChart": {
-    "description": "Auto imported from /components/BarChart.vue"
-  },
   "CustomTable": {
     "description": "Auto imported from /components/CustomTable.vue"
   },
   "LazyCustomTable": {
     "description": "Auto imported from /components/CustomTable.vue"
   },
-  "Digits": {
-    "description": "Auto imported from /components/Digits.vue"
+  "TimeZoomChart": {
+    "description": "Auto imported from /components/TimeZoomChart.vue"
   },
-  "LazyDigits": {
-    "description": "Auto imported from /components/Digits.vue"
-  },
-  "VuetifyLogo": {
-    "description": "Auto imported from /components/VuetifyLogo.vue"
-  },
-  "LazyVuetifyLogo": {
-    "description": "Auto imported from /components/VuetifyLogo.vue"
+  "LazyTimeZoomChart": {
+    "description": "Auto imported from /components/TimeZoomChart.vue"
   }
 }

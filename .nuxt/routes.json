@@ -1,12 +1,5 @@
 [
   {
-    "name": "index2",
-    "path": "/index2",
-    "component": "/home/jethro/Documents/dev/hedgetrackerui/pages/index2.vue",
-    "chunkName": "pages/index2",
-    "_name": "_37ef242e"
-  },
-  {
     "name": "index",
     "path": "/",
     "component": "/home/jethro/Documents/dev/hedgetrackerui/pages/index.vue",

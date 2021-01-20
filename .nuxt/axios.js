@@ -148,8 +148,8 @@ export default (ctx, inject) => {
   const runtimeConfig = ctx.$config && ctx.$config.axios || {}
   // baseURL
   const baseURL = process.browser
-    ? (runtimeConfig.browserBaseURL || runtimeConfig.baseURL || 'http://hedgetracker.spice.cash/api/')
-      : (runtimeConfig.baseURL || process.env._AXIOS_BASE_URL_ || 'http://hedgetracker.spice.cash/api/')
+    ? (runtimeConfig.browserBaseURL || runtimeConfig.baseURL || 'http://localhost:8000/api/')
+      : (runtimeConfig.baseURL || process.env._AXIOS_BASE_URL_ || 'http://localhost:8000/api/')
 
   // Create fresh objects for all default header scopes
   // Axios creates only one which is shared across SSR requests!

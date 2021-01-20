@@ -1,14 +1,31 @@
 <template>
   <v-container>
-    <v-card style="padding: 2%" class="mb-5">
-      <apexchart
-        v-if="dataLoaded"
-        type="area"
-        height="350"
-        :options="chartOptions"
-        :series="series"
-      ></apexchart>
-    </v-card>
+    <v-row v-if="dataLoaded">
+      <time-zoom-chart
+        :series="totalContractsSeries"
+        title="Total Contract Satoshis"
+        :dates="dates"
+        y-title="Satoshis"
+      />
+    </v-row>
+
+    <v-row class="mb-5" v-if="dataLoaded">
+      <time-zoom-chart
+        :series="usdPayoutSeries[0]"
+        title="Total Daily Payouts"
+        :dates="dates"
+        y-title="Dollars ($)"
+        :cols="6"
+      />
+      <time-zoom-chart
+        :series="usdPayoutSeries[1]"
+        title="Average Daily Payouts"
+        :dates="dates"
+        y-title="Dollars ($)"
+        :cols="6"
+      />
+    </v-row>
+
     <custom-table title="Settlement Transactions" />
   </v-container>
 </template>
@@ -20,78 +37,9 @@ export default {
   data() {
     return {
       dataLoaded: false,
-      series: [
-        {
-          name: "Hedge",
-          data: [],
-          type: "column",
-        },
-        {
-          name: "Long",
-          data: [],
-          type: "column",
-        },
-      ],
-      chartOptions: {
-        chart: {
-          type: "area",
-          // foreColor: "#FFFFFF",
-          stacked: false,
-          height: 350,
-          zoom: {
-            type: "x",
-            enabled: true,
-            autoScaleYaxis: true,
-          },
-          toolbar: {
-            autoSelected: "zoom",
-          },
-        },
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            columnWidth: "55%",
-            endingShape: "rounded",
-          },
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        markers: {
-          size: 0,
-        },
-        title: {
-          text: "Hedge & Long USD Payouts",
-          align: "left",
-          style: {
-            fontFamily: "Karla",
-            fontSize: "18px",
-          },
-        },
-        yaxis: {
-          type: "numeric",
-          labels: {
-            formatter: function(val) {
-              return val.toFixed(0);
-            },
-          },
-          title: {
-            text: "USD ($)",
-          },
-        },
-        xaxis: {
-          type: "datetime",
-          categories: [],
-        },
-        tooltip: {
-          shared: false,
-          y: {
-            formatter: function(val) {
-              return val.toFixed(0);
-            },
-          },
-        },
-      },
+      usdPayoutSeries: [],
+      totalContractsSeries: [],
+      dates: [],
     };
   },
 
@@ -110,9 +58,31 @@ export default {
   created() {
     this.$axios.get("metrics/").then((resp) => {
       const data = resp.data;
-      this.chartOptions.xaxis.categories = data.date_created;
-      this.series[0].data = data.hedge_usd_payout;
-      this.series[1].data = data.long_usd_payout;
+      this.dates = data.date_created;
+
+      // Total Contract Satoshis
+      this.totalContractsSeries.push({
+        name: "Satoshis",
+        data: data.total_contract_satoshis,
+      });
+
+      // USD Payouts
+      for (let key of Object.keys(data.usd_payouts)) {
+        let series = [
+          {
+            name: "Hedge",
+            data: [],
+          },
+          {
+            name: "Long",
+            data: [],
+          },
+        ];
+        series[0].data = data.usd_payouts[key].hedge;
+        series[1].data = data.usd_payouts[key].long;
+        this.usdPayoutSeries.push(series);
+      }
+
       this.dataLoaded = true;
     });
   },
